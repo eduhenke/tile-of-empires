@@ -1,14 +1,15 @@
-var Greeter = (function () {
-    function Greeter(greeting) {
-        this.greeting = greeting;
+var SimpleGame = (function () {
+    function SimpleGame() {
+        this.game = new Phaser.Game(800, 600, Phaser.AUTO, 'content', { create: this.create });
     }
-    Greeter.prototype.greet = function () {
-        return "<h1>" + this.greeting + "</h1>";
+    SimpleGame.prototype.create = function () {
+        var text = "Klock Viado!";
+        var style = { font: "65px Arial", fill: "#ff0000", align: "center" };
+        this.game.add.text(0, 0, text, style);
     };
-    return Greeter;
+    return SimpleGame;
 }());
-;
-var greeter = new Greeter("Hello, Worldasdasda!");
-console.log("GE");
-document.body.innerHTML = greeter.greet();
+window.onload = function () {
+    var game = new SimpleGame();
+};
 //# sourceMappingURL=main.js.map

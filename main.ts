@@ -1,10 +1,19 @@
-class Greeter {
-    constructor(public greeting: string) { }
-    greet() {
-        return "<h1>" + this.greeting + "</h1>";
-    }
-};
+class SimpleGame {
 
-var greeter = new Greeter("Hello, Worldasdasda!");
-console.log("GE");
-document.body.innerHTML = greeter.greet();
+    constructor() {
+        this.game = new Phaser.Game(800, 600, Phaser.AUTO, 'content', { create: this.create });
+    }
+
+    game: Phaser.Game;
+
+    create() {
+        var text = "Klock Viado!";
+        var style = { font: "65px Arial", fill: "#ff0000", align: "center" };
+        this.game.add.text(0, 0, text, style);
+    }
+
+}
+
+window.onload = () => {
+    var game = new SimpleGame();
+};
